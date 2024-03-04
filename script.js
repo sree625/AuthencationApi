@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require("path");
-const cors =require("cors")
+const cors = require("cors");
 const app = express();
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -16,14 +16,18 @@ app.get("/login", (req, res) => {
   res.json(userData);
 });
 
+const userArray=[]
 
-app.post("/addUser" ,(req , res )=>{
-    const data =req.body
-    console.log(data)
-})
+app.post("/addUser", (req, res) => {
+  const { name } = req.body;
+  userArray.push(name)
+  const data = req.body;
+  res.json(userArray)
+  console.log(data);
+});
 
 app.get("*", (req, res) => {
-    res.json("NO Route");
-  });
+  res.json("NO Route");
+});
 
 app.listen(8000);
