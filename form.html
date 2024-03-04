@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API</title>
+  </head>
+  <body>
+    <script>
+      fetch("http://localhost:8000/addUser", {
+        method: "POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+          name: "sreeekutty c",
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data, "datat"));
+    </script>
+  </body>
+  <h1>hello</h1>
+</html>
